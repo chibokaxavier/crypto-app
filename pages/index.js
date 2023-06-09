@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <main>
-      <div className="bg-red-700"> 
+      <div className=" min-h-screen"> 
       
       </div>
     </main>
