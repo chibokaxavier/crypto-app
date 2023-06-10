@@ -4,9 +4,10 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 import Coin from "./Coin";
 
 const CoinSearch = ({ coins }) => {
+  console.log(coins);
   const [searchText, setSearchText] = useState("");
   return (
-    <div className="my-4">
+    <div className="my-4 md:w-[1140px] md:mx-auto md:shadow-2xl md:rounded-lg md:p-4">
       <div className="flex flex-col md:flex-row justify-between pt-4 pb-6 text-center md:text-right">
         <h1 className="text-2xl font-bold my-2">Search for Crypto</h1>
         <form className="">
@@ -25,13 +26,13 @@ const CoinSearch = ({ coins }) => {
         <thead>
           <tr className="border-b">
             <th></th>
-            <th>#</th>
-            <th>Coin</th>
+            <th className="px-4">#</th>
+            <th className="text-left">Coin</th>
             <th></th>
             <th>Price</th>
             <th>24h</th>
-            <th>24h Volume</th>
-            <th>Mkt</th>
+            <th className="hidden md:table-cell">24h Volume</th>
+            <th className="hidden md:table-cell">Mkt</th>
             <th>Last 7 Days</th>
           </tr>
         </thead>
