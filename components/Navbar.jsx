@@ -9,7 +9,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
+    <div className=" shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
       <Link href={"/"}>
         <h1 className="text-2xl">CryptoBase</h1>
       </Link>

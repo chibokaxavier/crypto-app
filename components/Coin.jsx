@@ -4,28 +4,28 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 
 const Coin = ({ coin }) => {
   return (
-    <div className="grid grid-cols-9">
-      <div>
+    <tr className=" w-full text-center border-collapse">
+      <td className="">
         <AiOutlineStar />
-      </div>
-      <div>{coin.market_cap_rank}</div>
-      <div>
-        <div className=" ">
+      </td>
+      <td>{coin.market_cap_rank}</td>
+      <td>
+        <td className=" ">
           <img src={coin.image} alt={coin.id} />
           <p>{coin.name}</p>
-        </div>
-      </div>
-      <div>{coin.symbol}</div>
-      <div>{coin.current_price}</div>
-      <div>{coin.price_change_percentage_24h}</div>
-      <div>{coin.total_volume}</div>
-      <div>{coin.market_cap}</div>
-      <div>
+        </td>
+      </td>
+      <td>{coin.symbol}</td>
+      <td>{coin.current_price}</td>
+      <td>{coin.price_change_percentage_24h}</td>
+      <td>{coin.total_volume}</td>
+      <td>{coin.market_cap}</td>
+      <td>
         <Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="blue" />
         </Sparklines>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 };
 
