@@ -2,12 +2,12 @@ import CoinSearch from "@/components/CoinSearch";
 import Trending from "@/components/Trending";
 import { useEffect, useState } from "react";
 
-export default function Home({ coins }) {
+export default function Home({ coins,trending }) {
   return (
     <main>
       <div className=" min-h-screen  px-4">
         <CoinSearch coins={coins} />
-        <Trending />
+        <Trending trending={trending} />
       </div>
     </main>
   );
