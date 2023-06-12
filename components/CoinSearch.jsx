@@ -4,7 +4,6 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 import Coin from "./Coin";
 
 const CoinSearch = ({ coins }) => {
-  console.log(coins);
   const [searchText, setSearchText] = useState("");
   return (
     <div className="my-4 md:w-[1140px] md:mx-auto md:shadow-2xl md:rounded-lg md:p-4">
