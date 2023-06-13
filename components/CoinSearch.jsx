@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { AiOutlineStar } from "react-icons/ai";
-import { Sparklines, SparklinesLine } from "react-sparklines";
 import Coin from "./Coin";
 
 const CoinSearch = ({ coins }) => {
