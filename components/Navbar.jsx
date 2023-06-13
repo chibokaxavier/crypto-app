@@ -9,7 +9,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="  md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
+    <div className="md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
       <Link href={"/"}>
         <h1 className="text-2xl">CryptoBase</h1>
       </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "md:hidden fixed left-0 top-20 flex flex-col justify-between w-full  h-[70%] ease-in duration-300  z-10"
+            ? "md:hidden fixed left-0 top-20 flex flex-col justify-between w-full  h-[70%] ease-in duration-300  z-20 bg-gray-500"
             : "fixed left-[-100%] top-20 flex flex-col justify-between w-full  h-[70%] ease-in duration-300  z-10 "
         }
       >
@@ -66,7 +66,7 @@ const Navbar = () => {
           </Link>
           <Link href="signup">
             {" "}
-            <button className="w-full my-2 p-3  bg-blue-700 rounded-2xl shadow-xl">
+            <button className="w-full my-2 p-3  bg-gray-700 rounded-2xl shadow-xl">
               Sign Up
             </button>{" "}
           </Link>
