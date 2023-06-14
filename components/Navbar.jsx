@@ -2,12 +2,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { HiMoon } from "react-icons/hi";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import useAuth from "hooks/useAuth";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
+  const { user } = useAuth();
+
   return (
     <div className="md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
       <Link href={"/"}>
@@ -17,7 +20,7 @@ const Navbar = () => {
         <HiMoon />
         <span>Dark Mode</span>
       </div>
-      <div className="hidden md:block">
+      {!user ? (<div className="hidden md:block">
         <Link href="/signin" className="p-4 hover:text-accent">
           Sign In
         </Link>
@@ -27,7 +30,8 @@ const Navbar = () => {
         >
           Sign Up
         </Link>
-      </div>
+      </div>) : (<Link href='/account'>{user.email}</Link>) }
+      
       <div
         onClick={handleNav}
         className="block md:hidden cursor-pointer z-10 mr-4"
