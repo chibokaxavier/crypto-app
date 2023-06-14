@@ -1,5 +1,5 @@
 import { db } from "@/firebase";
-import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -8,21 +8,24 @@ import useAuth from "hooks/useAuth";
 const SavedCoin = () => {
   const [coins, setCoins] = useState([]);
   const { user } = useAuth();
-  // const deleteCoin = async (passedId) => {
-  //   try {
-  //     const results = coins.filter((coin) => coin.id !== passedId);
-  //     await updateDoc(doc(db, "users", `${user.email}`), {
-  //       watchlist: results,
-  //     });
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-  // useEffect(() => {
-  //   onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
-  //     setCoins(doc.data()?.watchlist);
-  //   });
-  // }, [user.email]);
+
+  useEffect(
+    () =>
+      onSnapshot(
+        collection(db, "users", `${user.email}`, "wishlist"),
+        (snapshot) => {
+          const post = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setCoins(post);
+        }
+      ),
+    [db]
+  );
+  const deleteCoin = async (id) => {
+    await deleteDoc(doc(db, "users", `${user.email}`, "wishlist", id ))
+  };
 
   return (
     <div>
