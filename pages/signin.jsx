@@ -53,7 +53,10 @@ const signin = () => {
               <AiFillLock className="absolute right-2 top-4 text-gray-400" />
             </div>
           </div>
-          <button type="submit" className="w-full my-2 p-3 bg-blue-400 text-white rounded-2xl shadow-xl">
+          <button
+            type="submit"
+            className="w-full my-2 p-3 bg-blue-400 text-white rounded-2xl shadow-xl"
+          >
             Sign in
           </button>
         </form>

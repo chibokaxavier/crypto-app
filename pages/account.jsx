@@ -36,9 +36,15 @@ const Account = () => {
   } else {
     return (
       <div className=" my-24 flex flex-col items-center justify-center">
-       <img src="https://cdn.pixabay.com/photo/2016/04/24/22/30/monitor-1350918_640.png" alt=""  className="w-[300px]"/>
-        <p className="text-7xl"> <span className="text-sm">Please Sign In</span></p>
-        
+        <img
+          src="https://cdn.pixabay.com/photo/2016/04/24/22/30/monitor-1350918_640.png"
+          alt=""
+          className="w-[300px]"
+        />
+        <p className="text-7xl">
+          {" "}
+          <span className="text-sm">Please Sign In</span>
+        </p>
       </div>
     );
   }

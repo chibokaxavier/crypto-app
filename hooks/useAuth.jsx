@@ -12,12 +12,12 @@ import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 
 const AuthContext = createContext({
-//   user,
-//   signIn,
-//   signUp,
-//   logout,
-//   error,
-//   loading
+  //   user,
+  //   signIn,
+  //   signUp,
+  //   logout,
+  //   error,
+  //   loading
 });
 
 export const AuthProvider = ({ children }) => {
@@ -46,9 +46,6 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (email, password) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // setDoc(doc(db, "users", email), {
-        //   watchlist: [],
-        // });
         setUser(userCredential.user);
         router.push("/");
         setLoading(false);

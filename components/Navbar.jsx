@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-  const { user,logout } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <div className="md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
@@ -71,7 +71,12 @@ const Navbar = () => {
         </ul>
         {user ? (
           <div className="mx-auto w-[200px] flex items-center justify-center">
-            <button className="px-4 py-2 mb-4 bg-red-500 text-white rounded-lg" onClick={logout}>Log Out</button>
+            <button
+              className="px-4 py-2 mb-4 bg-red-500 text-white rounded-lg"
+              onClick={logout}
+            >
+              Log Out
+            </button>
           </div>
         ) : (
           <div className="flex flex-col w-full p-4 ">

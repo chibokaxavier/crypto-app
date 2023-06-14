@@ -1,5 +1,11 @@
 import { db } from "@/firebase";
-import { collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  updateDoc,
+} from "firebase/firestore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -24,7 +30,7 @@ const SavedCoin = () => {
     [db]
   );
   const deleteCoin = async (id) => {
-    await deleteDoc(doc(db, "users", `${user.email}`, "wishlist", id ))
+    await deleteDoc(doc(db, "users", `${user.email}`, "wishlist", id));
   };
 
   return (
@@ -60,7 +66,7 @@ const SavedCoin = () => {
                     </div>
                   </Link>
                 </td>
-                <td className="pl-8" onClick={()=>deleteCoin(coin.id)}>
+                <td className="pl-8" onClick={() => deleteCoin(coin.id)}>
                   <AiOutlineClose className="cursor-pointer" />
                 </td>
               </tr>

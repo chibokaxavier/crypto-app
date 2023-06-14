@@ -22,12 +22,13 @@ const signup = () => {
           <div className="my-4">
             <label htmlFor="">Email</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
-              <input  {...register("email", { required: true })}
+              <input
+                {...register("email", { required: true })}
                 className="w-full p-3 border-none outline-none rounded-2xl bg-transparent "
                 type="email"
                 placeholder="Please enter your Email"
               />
-               {errors.email && (
+              {errors.email && (
                 <p className="p-1 text-[13px] font-light  text-orange-500">
                   Please enter a valid email.
                 </p>
@@ -38,11 +39,13 @@ const signup = () => {
           <div>
             <label htmlFor="">Password</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl bg-transparent">
-              <input {...register("password", { required: true })}
+              <input
+                {...register("password", { required: true })}
                 className="w-full p-3 border-none outline-none rounded-2xl "
                 type="password"
                 placeholder="Please enter your password"
-              /> {errors.password && (
+              />{" "}
+              {errors.password && (
                 <p className="p-1 text-[13px] font-light  text-orange-500">
                   Your password must contain between 4 and 60 characters.
                 </p>
@@ -50,7 +53,10 @@ const signup = () => {
               <AiFillLock className="absolute right-2 top-4 text-gray-400" />
             </div>
           </div>
-          <button type="submit" className="w-full my-2 p-3 bg-blue-400 text-white rounded-2xl shadow-xl">
+          <button
+            type="submit"
+            className="w-full my-2 p-3 bg-blue-400 text-white rounded-2xl shadow-xl"
+          >
             Sign Up
           </button>
         </form>
