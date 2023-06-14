@@ -37,7 +37,7 @@ const SavedCoin = () => {
     <div>
       {coins.length === 0 ? (
         <p>
-          You don't have any coins saved. Please save a coin to add it to your
+          You don&apos;t have any coins saved. Please save a coin to add it to your
           watch list <Link href="/">Click here to search coins</Link>
         </p>
       ) : (

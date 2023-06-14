@@ -4,7 +4,7 @@ import { AiFillLock, AiOutlineMail } from "react-icons/ai";
 import useAuth from "hooks/useAuth";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-const signup = () => {
+const SignUp = () => {
   const { signUp } = useAuth();
   const {
     register,
@@ -71,4 +71,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default SignUp;

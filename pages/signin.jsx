@@ -4,7 +4,7 @@ import { AiFillLock, AiOutlineMail } from "react-icons/ai";
 import useAuth from "hooks/useAuth";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-const signin = () => {
+const SignIn = () => {
   const { signIn } = useAuth();
   const {
     register,
@@ -61,7 +61,7 @@ const signin = () => {
           </button>
         </form>
         <p className="my-4">
-          Dont't have an account ?{" "}
+          Dont&apos;t have an account ?{" "}
           <Link href="/signup" className="text-blue-600">
             Sign Up{" "}
           </Link>{" "}
@@ -71,4 +71,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default SignIn;
