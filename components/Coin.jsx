@@ -27,7 +27,7 @@ const Coin = ({ coin }) => {
   useEffect(
     () =>
       onSnapshot(
-        collection(db, "users", `${user.email}`, "wishlist"),
+        collection(db, "users", `${user?.email}`, "wishlist"),
         (snapshot) => {
           const post = snapshot.docs.map((doc) => ({
             id: doc.id,

@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-  const { user } = useAuth();
+  const { user,logout } = useAuth();
 
   return (
     <div className="md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
@@ -20,18 +20,22 @@ const Navbar = () => {
         <HiMoon />
         <span>Dark Mode</span>
       </div>
-      {!user ? (<div className="hidden md:block">
-        <Link href="/signin" className="p-4 hover:text-accent">
-          Sign In
-        </Link>
-        <Link
-          href="/signup"
-          className="px-5 py-2 bg-gray-700 rounded-2xl hover:shadow-2xl text-white items-center ml-2 shadow-lg "
-        >
-          Sign Up
-        </Link>
-      </div>) : (<Link href='/account'>{user.email}</Link>) }
-      
+      {!user ? (
+        <div className="hidden md:block">
+          <Link href="/signin" className="p-4 hover:text-accent">
+            Sign In
+          </Link>
+          <Link
+            href="/signup"
+            className="px-5 py-2 bg-gray-700 rounded-2xl hover:shadow-2xl text-white items-center ml-2 shadow-lg "
+          >
+            Sign Up
+          </Link>
+        </div>
+      ) : (
+        <Link href="/account">{user.email}</Link>
+      )}
+
       <div
         onClick={handleNav}
         className="block md:hidden cursor-pointer z-10 mr-4"
@@ -49,10 +53,14 @@ const Navbar = () => {
       >
         <ul className="w-full p-4 ">
           <li className="border-b py-6">
-            <Link href="/">Home</Link>
+            <Link href="/" onClick={handleNav}>
+              Home
+            </Link>
           </li>
           <li className="border-b py-6">
-            <Link href="/">Account</Link>
+            <Link href="/account" onClick={handleNav}>
+              Account
+            </Link>
           </li>
           <li className="py-6">
             <div className="flex items-center space-x-4 cursor-pointer ">
@@ -61,20 +69,26 @@ const Navbar = () => {
             </div>
           </li>
         </ul>
-        <div className="flex flex-col w-full p-4 ">
-          <Link href="signin">
-            {" "}
-            <button className="w-full my-2 p-3 bg-slate-400 rounded-2xl shadow-xl">
-              Sign In
-            </button>{" "}
-          </Link>
-          <Link href="signup">
-            {" "}
-            <button className="w-full my-2 p-3  bg-gray-700 rounded-2xl shadow-xl">
-              Sign Up
-            </button>{" "}
-          </Link>
-        </div>
+        {user ? (
+          <div className="mx-auto w-[200px] flex items-center justify-center">
+            <button className="px-4 py-2 mb-4 bg-red-500 text-white rounded-lg" onClick={logout}>Log Out</button>
+          </div>
+        ) : (
+          <div className="flex flex-col w-full p-4 ">
+            <Link href="signin">
+              {" "}
+              <button className="w-full my-2 p-3 bg-slate-400 rounded-2xl shadow-xl">
+                Sign In
+              </button>{" "}
+            </Link>
+            <Link href="signup">
+              {" "}
+              <button className="w-full my-2 p-3  bg-gray-700 rounded-2xl shadow-xl">
+                Sign Up
+              </button>{" "}
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

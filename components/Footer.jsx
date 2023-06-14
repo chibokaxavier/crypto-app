@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
 import {
@@ -45,8 +46,17 @@ const Footer = () => {
               </p>
               <div className="py-4">
                 <form action="">
-                  <input className="bg-white rounded-2xl  border p-2 mr-2 w-full shadow-2xl  md:w-auto border-none outline-none text-black" type="text" placeholder="Enter your Email" />
-                  <button className="px-4 p-2 w-full md:w-auto bg-blue-500 hover:shadow-2xl  shadow-xl rounded-2xl my-2  text-white ">Sign in</button>
+                  <input
+                    className="bg-white rounded-2xl  border p-2 mr-2 w-full shadow-2xl  md:w-auto border-none outline-none text-black"
+                    type="text"
+                    placeholder="Enter your Email"
+                  />
+                  <Link href="/signin">
+                    {" "}
+                    <button className="px-4 p-2 w-full md:w-auto bg-blue-500 hover:shadow-2xl  shadow-xl rounded-2xl my-2  text-white ">
+                      Sign in
+                    </button>
+                  </Link>
                 </form>
               </div>
               <div className="py-4  justify-between flex text-gray-600">
