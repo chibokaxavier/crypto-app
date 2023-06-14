@@ -1,9 +1,29 @@
+import { db } from "@/firebase";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import useAuth from "hooks/useAuth";
 
 const SavedCoin = () => {
   const [coins, setCoins] = useState([]);
+  const { user } = useAuth();
+  // const deleteCoin = async (passedId) => {
+  //   try {
+  //     const results = coins.filter((coin) => coin.id !== passedId);
+  //     await updateDoc(doc(db, "users", `${user.email}`), {
+  //       watchlist: results,
+  //     });
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  // useEffect(() => {
+  //   onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
+  //     setCoins(doc.data()?.watchlist);
+  //   });
+  // }, [user.email]);
+
   return (
     <div>
       {coins.length === 0 ? (
@@ -30,12 +50,14 @@ const SavedCoin = () => {
                       <img src={coin?.image} className="w-8 mr-4" alt="/" />
                       <div>
                         <p className="hidden sm:table-cell">{coin?.name}</p>
-                        <p className="text-gray-500 text-left text-sm">{coin?.symbol.toUpperCase()}</p>
+                        <p className="text-gray-500 text-left text-sm">
+                          {coin?.symbol.toUpperCase()}
+                        </p>
                       </div>
                     </div>
                   </Link>
                 </td>
-                <td className="pl-8">
+                <td className="pl-8" onClick={()=>deleteCoin(coin.id)}>
                   <AiOutlineClose className="cursor-pointer" />
                 </td>
               </tr>

@@ -46,9 +46,9 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (email, password) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setDoc(doc(db, "users", email), {
-          watchlist: [],
-        });
+        // setDoc(doc(db, "users", email), {
+        //   watchlist: [],
+        // });
         setUser(userCredential.user);
         router.push("/");
         setLoading(false);
@@ -71,6 +71,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     signOut(auth)
       .then(() => {
+        router.push("/");
         setUser(null);
       })
       .finally(() => {
