@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="md:w-[1140px] shadow-2xl rounded-lg mx-auto flex items-center justify-between h-20 font-bold px-4">
       <Link href={"/"}>
-        <h1 className="text-2xl">CryptoBase</h1>
+        <h1 className="text-2xl">Crypto-X</h1>
       </Link>
       <div className="hidden md:flex md:items-center md:space-x-4 cursor-pointer ">
         <HiMoon />
