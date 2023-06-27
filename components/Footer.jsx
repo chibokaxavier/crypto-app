@@ -9,8 +9,10 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { HiMoon } from "react-icons/hi";
+import useAuth from "hooks/useAuth";
 
 const Footer = () => {
+  const { signIn, user } = useAuth();
   return (
     <div className="md:w-[1140px] mx-auto shadow-lg  pt-8 mt-8 px-4">
       <div className="grid md:grid-cols-2">
@@ -54,7 +56,7 @@ const Footer = () => {
                   <Link href="/signin">
                     {" "}
                     <button className="px-4 p-2 w-full md:w-auto bg-blue-500 hover:shadow-2xl  shadow-xl rounded-2xl my-2  text-white ">
-                      Sign in
+                      Sign Up 
                     </button>
                   </Link>
                 </form>
