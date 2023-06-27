@@ -1,12 +1,25 @@
 import SavedCoin from "@/components/SavedCoin";
-import React from "react";
+import React, { useEffect } from "react";
 import useAuth from "hooks/useAuth";
 import { Router, useRouter } from "next/router";
 
 const Account = () => {
   const { user, logout } = useAuth();
   const router = useRouter();
-  if (user) {
+  useEffect(() => {
+    if (user) {
+      console.log("signed in!");
+    } else if (!user) {
+      router.push("/signin");
+    }
+  }, [user]);
+
+  if (!user) {
+    // user is signed out or still being checked.
+    // don't render anything
+    return null;
+  }
+
     return (
       <div className="max-w-[1140px] mx-auto ">
         <div className="flex justify-between items-center my-12 py-8  shadow-2xl rounded-lg px-4">
@@ -32,22 +45,7 @@ const Account = () => {
           </div>
         </div>
       </div>
-    );
-  } else {
-    return (
-      <div className=" my-24 flex flex-col items-center justify-center">
-        <img
-          src="https://cdn.pixabay.com/photo/2016/04/24/22/30/monitor-1350918_640.png"
-          alt=""
-          className="w-[300px]"
-        />
-        <p className="text-7xl">
-          {" "}
-          <span className="text-sm">Please Sign In</span>
-        </p>
-      </div>
-    );
-  }
+    )
 };
 
 export default Account;
