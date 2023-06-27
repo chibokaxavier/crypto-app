@@ -19,7 +19,6 @@ const Account = () => {
     // don't render anything
     return null;
   }
-
     return (
       <div className="max-w-[1140px] mx-auto ">
         <div className="flex justify-between items-center my-12 py-8  shadow-2xl rounded-lg px-4">

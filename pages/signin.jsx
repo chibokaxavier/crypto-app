@@ -1,11 +1,12 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillLock, AiOutlineMail } from "react-icons/ai";
 import useAuth from "hooks/useAuth";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -14,6 +15,20 @@ const SignIn = () => {
   const onSubmit = async ({ email, password }) => {
     await signIn(email, password);
   };
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      console.log("");
+    } else if (user) {
+      router.push("/");
+    }
+  }, [user]);
+
+  if (user) {
+    // user is signed out or still being checked.
+    // don't render anything
+    return null;
+  }
   return (
     <div>
       <div className="max-w-[400px] mx-auto min-h-[400px] px-4 py-20">

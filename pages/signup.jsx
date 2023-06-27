@@ -5,7 +5,7 @@ import useAuth from "hooks/useAuth";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 const SignUp = () => {
-  const { signUp } = useAuth();
+  const { signUp,user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -14,6 +14,20 @@ const SignUp = () => {
   const onSubmit = async ({ email, password,name }) => {
     await signUp(email, password,name);
   };
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      console.log("");
+    } else if (user) {
+      router.push("/");
+    }
+  }, [user]);
+
+  if (user) {
+    // user is signed out or still being checked.
+    // don't render anything
+    return null;
+  }
   return (
     <div>
       <div className="max-w-[400px] mx-auto min-h-[400px] px-4 py-20">
