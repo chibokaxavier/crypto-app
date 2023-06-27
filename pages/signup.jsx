@@ -11,8 +11,8 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async ({ email, password }) => {
-    await signUp(email, password);
+  const onSubmit = async ({ email, password,name }) => {
+    await signUp(email, password,name);
   };
   return (
     <div>
@@ -27,6 +27,23 @@ const SignUp = () => {
                 className="w-full p-3 border-none outline-none rounded-2xl bg-transparent "
                 type="email"
                 placeholder="Please enter your Email"
+              />
+              {errors.email && (
+                <p className="p-1 text-[13px] font-light  text-orange-500">
+                  Please enter a valid email.
+                </p>
+              )}
+              <AiOutlineMail className="absolute right-2 top-4 text-gray-400" />
+            </div>
+          </div>
+          <div>
+          <label htmlFor="">username</label>
+            <div className="my-2 w-full relative rounded-2xl shadow-xl">
+              <input
+                {...register("name", { required: true })}
+                className="w-full p-3 border-none outline-none rounded-2xl bg-transparent "
+                type="text"
+                placeholder="Please enter your name"
               />
               {errors.email && (
                 <p className="p-1 text-[13px] font-light  text-orange-500">

@@ -33,7 +33,7 @@ const Navbar = () => {
           </Link>
         </div>
       ) : (
-        <Link href="/account">{user.email}</Link>
+        <Link href="/account">{user.displayName}</Link>
       )}
 
       <div

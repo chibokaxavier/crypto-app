@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
   User,
 } from "firebase/auth";
 
@@ -43,10 +44,11 @@ export const AuthProvider = ({ children }) => {
     [auth]
   );
 
-  const signUp = async (email, password) => {
-    await createUserWithEmailAndPassword(auth, email, password)
+  const signUp = async (email, password, name) => {
+    await createUserWithEmailAndPassword(auth, email, name, password)
       .then((userCredential) => {
         setUser(userCredential.user);
+        updateProfile(auth.currentUser, { displayName: name });
         router.push("/");
         setLoading(false);
       })
