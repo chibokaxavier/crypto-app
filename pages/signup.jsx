@@ -1,8 +1,9 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillLock, AiOutlineMail } from "react-icons/ai";
 import useAuth from "hooks/useAuth";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
   const { signUp,user } = useAuth();
