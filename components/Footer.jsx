@@ -56,7 +56,7 @@ const Footer = () => {
                   <Link href="/signin">
                     {" "}
                     <button className="px-4 p-2 w-full md:w-auto bg-blue-500 hover:shadow-2xl  shadow-xl rounded-2xl my-2  text-white ">
-                      Sign Up 
+                      Sign Up
                     </button>
                   </Link>
                 </form>
