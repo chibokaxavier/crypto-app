@@ -31,11 +31,11 @@ export const AuthProvider = ({ children }) => {
     () =>
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          // Logged in...
+          // Logged in..
           setUser(user);
           setLoading(false);
         } else {
-          // Not logged in...
+          // Not logged in..
           setUser(null);
         }
 
