@@ -5,7 +5,7 @@ const Trending = ({ trending }) => {
     <div className="my-12 py-8 shadow-lg px-4 md:w-[1140px] mx-auto">
       <h1 className="text-2xl py-4 font-bold">Trending Coins</h1>
       <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {trending.map((coin,i) => (
+        {trending.map((coin, i) => (
           <div key={i} className=" shadow-lg p-4 flex justify-between hover:scale-105 ease-in-out duration-300">
             <div className="flex items-center justify-between w-full">
               <div className="flex">
