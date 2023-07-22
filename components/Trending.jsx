@@ -12,7 +12,7 @@ const Trending = ({ trending }) => {
                 <img
                   className="mr-4 rounded-full"
                   src={coin.item.small}
-                  alt="/"
+                  alt="coin"
                 />
                 <div>
                   <p className="font-bold">{coin.item.name}</p>
