@@ -53,7 +53,7 @@ const Coin = ({ coin }) => {
         });
       }
     } else {
-      alert("Please Sign in to save a coin to your watch list");
+      alert("Please Sign in to save a coin to your watch list!!");
     }
   };
 
